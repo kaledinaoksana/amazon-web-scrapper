@@ -1,0 +1,1 @@
+from wikiSpider.items import Article    
