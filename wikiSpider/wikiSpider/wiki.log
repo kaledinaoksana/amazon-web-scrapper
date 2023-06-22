@@ -1,0 +1,6 @@
+2023-06-22 21:31:13 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: wikiSpider)
+2023-06-22 21:31:13 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.16 (main, May 16 2023, 14:27:50) - [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 3.1.1 30 May 2023), cryptography 39.0.1, Platform macOS-12.6-arm64-arm-64bit
+2023-06-22 21:41:29 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: wikiSpider)
+2023-06-22 21:41:29 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.16 (main, May 16 2023, 14:27:50) - [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 3.1.1 30 May 2023), cryptography 39.0.1, Platform macOS-12.6-arm64-arm-64bit
+2023-06-22 21:44:43 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: wikiSpider)
+2023-06-22 21:44:43 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.1, Twisted 22.10.0, Python 3.9.16 (main, May 16 2023, 14:27:50) - [Clang 14.0.6 ], pyOpenSSL 23.0.0 (OpenSSL 3.1.1 30 May 2023), cryptography 39.0.1, Platform macOS-12.6-arm64-arm-64bit

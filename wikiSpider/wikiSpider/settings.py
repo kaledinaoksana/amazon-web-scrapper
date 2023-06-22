@@ -11,7 +11,7 @@ BOT_NAME = "wikiSpider"
 
 SPIDER_MODULES = ["wikiSpider.spiders"]
 NEWSPIDER_MODULE = "wikiSpider.spiders"
-LOG_LEVEL = 'ERROR'
+LOG_LEVEL = 'INFO'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
