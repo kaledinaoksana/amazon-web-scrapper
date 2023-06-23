@@ -1,2 +1,5 @@
 .DS_Store
 AmazonWebScraperDataset.csv
+settings.py
+editors.csv
+test.csv
