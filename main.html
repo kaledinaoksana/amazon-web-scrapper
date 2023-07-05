@@ -1,0 +1,78 @@
+<!-- main.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<head>
+    
+    <title>Amazon Product Scraper</title>
+    
+    <meta charset="iso-8859-1">
+    <link rel="icon" type="image/x-icon" href="./favicon.png">
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.2.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@holoviz/panel@0.13.1/dist/panel.min.js"></script>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <style>
+        table { width: 500px;}
+        h1 {font-size: 30px}
+    </style>
+</head>
+
+<!-- ENV -->
+<py-env>
+      - bokeh
+      - numpy
+      - panel==0.13.1
+</py-env>
+
+<!-- BODY -->
+<body>
+
+    <h1>Amazon Product Scraper</h1>
+
+    <div id="simple_app"></div>
+
+    <section class="pyscript">
+
+        Hello world! <br>
+        This is the current date and time, as computed by Python:
+
+         <py-script>
+            import panel as pn
+
+            pn.extension(sizing_mode="stretch_width")
+
+            slider = pn.widgets.FloatSlider(start=0, end=10, name='Amplitude')
+
+            def callback(new):
+                return f'Amplitude is: {new}'
+
+            pn.Row(slider, pn.bind(callback, slider)).servable(target='simple_app');
+        </py-script>
+
+
+        <py-script>
+            from datetime import datetime
+            now = datetime.now()
+            print(now)      
+        </py-script>
+
+        <p>n</p>
+
+        
+
+
+        
+         
+    </section>
+
+    
+   
+
+
+</body>
+</html>
