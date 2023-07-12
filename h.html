@@ -1,0 +1,57 @@
+<py-script>
+    import panel as pn
+
+    slider = pn.widgets.FloatSlider(start=0, end=10, name='Amplitude')
+
+    def callback(new):
+        return f'Amplitude is: {new}'
+
+    pn.Row(slider, pn.bind(callback, slider)).servable(target='simple_app');
+</py-script>
+
+
+<py-script>
+
+    from datetime import datetime
+    now = datetime.now()
+    print(now)
+            
+</py-script>
+
+ <section class="pyscript">
+        Hello world! <br>
+        This is the current date and time, as computed by Python:
+        <py-script>print("Hello OKSANA'S World!")</py-script> 
+    </section>
+
+
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+    <py-repl id="my-repl" auto-generate=true> </py-repl>
+
+
+<py-env>
+        - paths:
+          - AmazonProductScraper.py
+        
+    </py-env>
+
+<py-script>
+            import AmazonProductScraper as am
+            file = 'files/AmazonWebScraper.csv'
+            URL = 'https://www.amazon.com/Amazon-Essentials-Womens-Skirt-Camel/dp/B08JH893DJ/ref=sr_1_2?crid=2EPWJXDHO814T&keywords=skirt&qid=1686339482&sprefix=skirt%2Caps%2C213&sr=8-2&th=1&psc=1'
+            low_price = 25
+
+            bs = connect(URL)
+            price = find_price(bs)
+            title = find_title(bs)
+
+            if am.write_data(file, title, price):
+                pd.read_csv(file)
+
+            if am.check_price(price, low_price):
+                print('price of',title,'lower than', low_price)
+            else:
+                print('price of',title,'higher than', low_price)
+        </py-script>

@@ -1,6 +1,5 @@
-<img src="logo.png" alt="drawing"/>
 
-# Amazon Product Scraper 
+# Amazon Product Scraper
 
 The objective of this project is to create a Python application that scrapes product information from the Amazon website. The application will allow users to search for products, retrieve details such as price, ratings, reviews, and other relevant data, and save the information for further analysis.
 
@@ -12,7 +11,9 @@ The objective of this project is to create a Python application that scrapes pro
 
 Create a virtual environment to manage dependencies.
 
-`conda create -n env-amazon python=3.9 pandas numpy bs4 requests`
+`conda create -n env-amazon python=3.9 pandas numpy bs4 requests panel`
+
+`pip install django-extensions`
 
 #### Usage
 
@@ -26,6 +27,7 @@ Deactivate environment: `conda deactivate`
 
 - Markdown Preview Github Styling
 - Python Environment Manager
+- Live Server
 
 ### 2. User Input
 
