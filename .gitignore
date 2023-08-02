@@ -1,5 +1,5 @@
 .DS_Store
-AmazonWebScraperDataset.csv
+books_data.csv
 files
 settings.py
 pyscript-main
