@@ -1,5 +1,6 @@
 .DS_Store
-Scrapper/books_data.csv
 files
 settings.py
 pyscript-main
+Scrapper/bases_csv
+Scrapper/__pycache__
