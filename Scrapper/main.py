@@ -1,4 +1,4 @@
-
+# conda activate env-01 
 import settings as s
 from info_html import *
 from classes import Book
@@ -31,10 +31,21 @@ for book in books_from_page:
     print(f"Price: {book.price}")
     print(f"Score: {book.score}")
     print("---------------------")
-    
+       
 # SAVE TO CSV
 CSVwork.save_to_csv_books(books_from_page, s.csv_file)
-print("Books data saved to CSV:", s.csv_file)
+
 
 # MAIL TO TELEGRAM BOT
-status = send.sent_message_bot("красоточка!")
+text_line = "Books data saved to CSV: " + s.csv_file
+status = send.sent_message_bot(text_line)
+
+
+#DATABASE
+# Подключаемся к базе данных
+# connection = connect_db()
+# # Создаем таблицу 
+# create_table(connection)
+# # Закрываем соединение
+# if connection:
+#     connection.close()

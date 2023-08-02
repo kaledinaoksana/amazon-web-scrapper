@@ -22,7 +22,7 @@ class Book:
         if stars:
             score = stars.get_text().replace(' ', '').replace('\n', '')[:3]
         else:
-            score = "N/A"  # Set a default value if stars element is not found
+            score = "N/A"
         return score
     
     def add_books_from_page(bs):
