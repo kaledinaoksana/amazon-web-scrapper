@@ -7,7 +7,7 @@ class Book:
         self.price = price
         self.score = score
 
-    def get_title():
+    def get_title(card):
         titles = card.find_all("span", {"class": BookInfo.title})
         title = ' '.join([title.get_text().strip().replace('\n', '') for title in titles])
         return title
