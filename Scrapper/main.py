@@ -5,9 +5,9 @@ from classes import Book
 import requests
 from bs4 import BeautifulSoup
 # Save
-from savings import CSVwork
+from save import CSVwork
 # Mail
-import sending as send
+import send
 
 URL = "https://www.amazon.com/s?k=python&crid=29YNX6P1J9VR1&sprefix=python%2Caps%2C243&ref=nb_sb_noss_2"
 
