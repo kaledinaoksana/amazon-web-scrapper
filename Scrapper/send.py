@@ -4,18 +4,28 @@ import settings as s
 import smtplib 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+from email.mime.application import MIMEApplication
 
-def send_massage(mail_content, subject):
+def send_massage(body, subject, attachment_path):
     sender_address = s.sender_address
     sender_pass = s.sender_psw
     receiver_address = s.receiver_address
+    
     #Setup the MIME
     message = MIMEMultipart()
     message['From'] = sender_address
     message['To'] = receiver_address
     message['Subject'] = subject 
-    #The body and the attachments for the mail
-    message.attach(MIMEText(mail_content, 'plain'))
+    message.attach(MIMEText(body, 'plain'))
+    
+    # Attach the file
+    with open(attachment_path, "rb") as attachment:
+        part = MIMEApplication(attachment.read(), Name=attachment_path.split("/")[-1])
+        part['Content-Disposition'] = f'attachment; filename="{attachment_path.split("/")[-1]}"'
+        message.attach(part)
+    
     #Create SMTP session for sending the mail
     session = smtplib.SMTP('smtp.office365.com', 587) 
     session.starttls()
