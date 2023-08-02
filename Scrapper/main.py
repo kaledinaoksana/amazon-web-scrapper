@@ -1,51 +1,56 @@
 # conda activate env-01 
+# --------------------------------------------------------------------------- 
+#IMPORT LIBRARIES
+# Settings
 import settings as s
-from info_html import *
+# Connect to WEB
+import web_utils as web
+# Classes for programm
 from classes import Book
-import requests
-from bs4 import BeautifulSoup
-# Save
+# Saving
 from save import CSVwork
-# Mail
+# Sending
 import send
 
-URL = "https://www.amazon.com/s?k=python&crid=29YNX6P1J9VR1&sprefix=python%2Caps%2C243&ref=nb_sb_noss_2"
+search = "python"
 
+search_line = search.replace(' ','+')
+URL = f"https://www.amazon.com/s?k={search_line}"
+csv_file = f"bases_csv/base_{search.replace(' ','_')}.csv"
+
+# --------------------------------------------------------------------------- 
 # CONNECTION TO SITE
-def connect(URL):
-    page = requests.get(URL,headers=s.headers)
-    soup1 = BeautifulSoup(page.content, "html.parser")
-    return BeautifulSoup(soup1.prettify(), 'html.parser')
+bs = web.connect(URL)
 
-bs = connect(URL)
-
+# --------------------------------------------------------------------------- 
 # FIND BOOKS FROM PAGE
 books_from_page = Book.add_books_from_page(bs)
 
-# Print the list of books
-i = 0
-for book in books_from_page:
-    i = i+1
-    print(f"Index: {i}")
-    print(f"Title: {book.title}")
-    print(f"Price: {book.price}")
-    print(f"Score: {book.score}")
-    print("---------------------")
-       
+# --------------------------------------------------------------------------- 
 # SAVE TO CSV
-CSVwork.save_to_csv_books(books_from_page, s.csv_file)
+CSVwork.save_to_csv_books(books_from_page, csv_file)
 
+# --------------------------------------------------------------------------- 
+text_line = "Books data saved to CSV: " + csv_file
+# # MAIL TO TELEGRAM BOT
+# status = send.sent_message_bot(text_line)
+# MAIL TO GMAIL
+status = send.send_massage(text_line, "CSV file", csv_file)
 
-# MAIL TO TELEGRAM BOT
-text_line = "Books data saved to CSV: " + s.csv_file
-status = send.sent_message_bot(text_line)
+# --------------------------------------------------------------------------- 
+# #DATABASE DBwork
+# from DB import DBwork as db
 
+# # Connect to the database and create a session
+# engine = db.conn_db()
+# session = db.create_session(engine)
 
-#DATABASE
-# Подключаемся к базе данных
-# connection = connect_db()
-# # Создаем таблицу 
-# create_table(connection)
-# # Закрываем соединение
-# if connection:
-#     connection.close()
+# # Create the table if it doesn't exist
+# db.create_table(engine)
+
+# with db.session_scope(engine) as session:
+#     for book in books_from_page:
+#         book_object = db.AmazonBook(Title=book.title, Price=book.price, Score=book.score)
+#         db.add_object(session, book_object)
+
+# --------------------------------------------------------------------------- 
