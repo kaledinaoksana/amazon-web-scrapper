@@ -11,3 +11,5 @@ class CSVwork:
 
             for book in books:
                 writer.writerow([book.title, book.price, book.score])
+                
+
