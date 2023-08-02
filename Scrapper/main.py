@@ -11,6 +11,7 @@ from classes import Book
 from save import CSVwork
 # Sending
 import send
+import asyncio
 
 search = "python"
 
@@ -34,8 +35,13 @@ CSVwork.save_to_csv_books(books_from_page, csv_file)
 text_line = "Books data saved to CSV: " + csv_file
 # # MAIL TO TELEGRAM BOT
 # status = send.sent_message_bot(text_line)
+async def main():
+    await send.sent_message_bot_with_file(text_line, csv_file)   
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main()) 
+
 # MAIL TO GMAIL
-status = send.send_massage(text_line, "CSV file", csv_file)
+# status = send.send_massage(text_line, "CSV file", csv_file)
 
 # --------------------------------------------------------------------------- 
 # #DATABASE DBwork

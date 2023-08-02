@@ -38,7 +38,10 @@ def send_massage(body, subject, attachment_path):
 
 # TELEGRAMM
 import asyncio
-from telegram import Bot
+from telegram import Bot, InputFile
+from aiogram import Bot, types
+from aiogram.dispatcher import Dispatcher
+from aiogram.utils import executor
 
 def sent_message_bot(text):
     async def send_message_async(text):
@@ -51,4 +54,14 @@ def sent_message_bot(text):
     loop = asyncio.get_event_loop()
     loop.run_until_complete(send_message_async(text))
     return "Отправлено!"
+
+async def sent_message_bot_with_file(text, file):
+    bot = Bot(token=s.token)
+    chat_id = s.user_chat_id 
+    file_path = file 
+
+    with open(file_path, 'rb') as f:
+        file = InputFile(f)
+
+    await bot.send_document(chat_id=chat_id, document=file, caption=text)
 
