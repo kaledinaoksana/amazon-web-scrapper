@@ -19,7 +19,7 @@ class DBwork:
         Score = Column(String)
 
     # CONNECTION
-    def conn_db():
+    def conn_db(self):
         connection_string = 'DRIVER={'+SQL.DRIVER+'};SERVER='+SQL.SERVER+';DATABASE='+SQL.DB+';UID='+SQL.USER+';PWD='+SQL.PSW+';'
         engine = create_engine(f"mssql+pyodbc:///?odbc_connect={connection_string}")
         return engine
@@ -42,7 +42,7 @@ class DBwork:
         return
     
     # DELETE
-    def delete_object(obj):
+    def delete_object(session, obj):
         session.delete(obj)
         session.commit()
         return
