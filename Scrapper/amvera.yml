@@ -1,7 +1,0 @@
-meta:
-  environment: python
-  toolchain:
-    name: pip
-    version: 3.8
-run:
-  scriptName: amazon_bot.py
