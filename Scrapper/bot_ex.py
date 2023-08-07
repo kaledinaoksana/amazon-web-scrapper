@@ -86,15 +86,15 @@ def get_photo(message):
     btn3 = types.InlineKeyboardButton(text='Edit photo', callback_data='edit')
     markup.row(btn1)
     markup.row(btn2, btn3)
-    bot.reply_to(message, text = 'Cool photo!', reply_markup = markup)
+    bot.reply_to(message, text='Cool photo!', reply_markup=markup)
 
 
-@bot.callback_query_handler(func=lambda callback: True)
-def callback_message(callback):
-    if callback.data == 'delete':
-        bot.delete_message(callback.message.chat.id, callback.message.message_id - 1)
-    elif callback.data == 'edit':
-        bot.edit_message_text('edit text', callback.message.chat.id, callback.message.message_id - 1)
+@bot.callback_query_handler(func=lambda call_back: True)
+def callback_message(call_back):
+    if call_back.data == 'delete':
+        bot.delete_message(call_back.message.chat.id, call_back.message.message_id - 1)
+    elif call_back.data == 'edit':
+        bot.edit_message_text('edit text', call_back.message.chat.id, call_back.message.message_id - 1)
 
 
 @bot.message_handler(commands=['site', 'website'])
