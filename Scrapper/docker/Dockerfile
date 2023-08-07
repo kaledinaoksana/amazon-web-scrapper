@@ -2,7 +2,7 @@
 FROM python:3.8
 
 # Установка рабочей директории внутри контейнера
-WORKDIR /Scrapper
+WORKDIR /data
 
 # Копирование зависимостей проекта
 COPY requirements.txt .
