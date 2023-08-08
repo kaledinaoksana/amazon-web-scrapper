@@ -1,0 +1,16 @@
+# conda env export > environment.yml 
+name: env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - python-telegram-bot
+  - sqlalchemy
+  - requests
+  - pip
+  - pip:
+    - asyncio
+    - aiogram
+    - pyTelegramBotAPI
+
+# writing image sha256:86f36c63f986fa6b7f39908c24bde5343ef06195c3a2ee98fa3e07b938dcd302
