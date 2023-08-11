@@ -1,7 +1,7 @@
 import settings as s
 
 # EMAIL
-import aiosmtplib as smtplib
+import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
@@ -42,15 +42,15 @@ def send_massage(body, subject, attachment_path, receiver_address=''):
 
 
 def sent_message_bot(text):
-    async def send_message_async(text):
+    def send_message_async(text):
         bot = Bot(token=s.token)
         user_chat_id = s.user_chat_id
         message_text = text
-        await bot.send_message(chat_id=user_chat_id, text=message_text)
+        bot.send_message(chat_id=user_chat_id, text=message_text)
 
     # Запускаем асинхронный цикл
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(send_message_async(text))
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(send_message_async(text))
     return "Отправлено!"
 
 
@@ -62,4 +62,4 @@ async def sent_message_bot_with_file(text, file):
     with open(file_path, 'rb') as f:
         file = InputFile(f)
 
-    await bot.send_document(chat_id=chat_id, document=file, caption=text)
+    bot.send_document(chat_id=chat_id, document=file, caption=text)

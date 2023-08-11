@@ -26,6 +26,7 @@ ENV PATH /opt/conda/envs/$(head -1 /tmp/environment.yml | cut -d' ' -f2)/bin:$PA
 # Copy your project files into the container
 COPY . /data
 
+
 # Activate the virtual environment
 # SHELL ["python3", "run", "-n", "amazon-bot-env"]
 # SHELL ["conda", "run", "-n", "env", "/bin/bash", "-c"]

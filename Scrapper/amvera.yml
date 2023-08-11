@@ -1,0 +1,7 @@
+
+build:
+  skip: yes
+
+run:
+  image: docker.io/library/condatest:latest
+  persistenceMount: /config
